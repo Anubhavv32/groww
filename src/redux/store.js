@@ -1,7 +1,6 @@
 import { createStore, applyMiddleware } from 'redux';
 import { composeWithDevTools } from 'redux-devtools-extension'
-import { persistStore, persistReducer } from "redux-persist";
-import { PersistGate } from "redux-persist/integration/react";
+import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import thunk from 'redux-thunk';
 import reducer from './reducer';

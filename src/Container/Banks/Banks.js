@@ -1,5 +1,3 @@
-/* eslint-disable react-hooks/exhaustive-deps */
-/* eslint-disable no-undef */
 import React, { useState, useEffect } from "react";
 import "./bank.css";
 import { fetchBankData } from "../../redux/action";
@@ -41,6 +39,11 @@ export const Banks = () => {
       bankDetail[category].startsWith(param)
     );
   };
+  const clearFilter = () => {
+    setCategory("");
+    setParam("");
+    setBankDetails(bankDetails);
+  }
   bankToShow = allBankDetails.slice(0 + pageNo * row, (pageNo + 1) * row);
   if (!allBankDetails.length) {
     return (
@@ -56,9 +59,9 @@ export const Banks = () => {
       <div className="main-line">
         <div className="table-list">
           <h1>All banks</h1>
-          <SearchBar category={category} setCategory={setCategory} />
+          <SearchBar category={category} setCategory={setCategory} setParam={setParam} pageNo={pageNo} param={param}/>
         </div>
-        <Table bankDetails={bankToShow} pageNo={pageNo} setParam={setParam} />
+        <Table bankDetails={bankToShow} />
         {allBankDetails.length ? (
           <div className="footer">
             <div className="pagination">
@@ -90,6 +93,7 @@ export const Banks = () => {
                 <option value={20}>20</option>
               </select>
             </div>
+            <div><button onClick={clearFilter} disabled={!param}>Clear all filter</button></div>
           </div>
         ) : null}
       </div>

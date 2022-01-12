@@ -3,7 +3,7 @@ import React from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { fetchBankData, setCity } from "../../redux/action";
 
-function SearchBar({setCategory, category, setParam}) {
+function SearchBar({setCategory, category, setParam, param}) {
     const city = useSelector((state) => state.city);
     const dispatch = useDispatch();
     const cityhandler = (e) => {
@@ -36,6 +36,7 @@ function SearchBar({setCategory, category, setParam}) {
             onChange={(e) => setParam(e.target.value)}
             required
             placeholder={`Enter ${category}`}
+            value={param}
           />
         </div>
       </div>

@@ -5,9 +5,8 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from 'react-router-dom';
-import { persistStore, persistReducer } from "redux-persist";
+import { persistStore } from "redux-persist";
 import { PersistGate } from "redux-persist/integration/react";
-import storage from "redux-persist/lib/storage";
 import store from './redux/store';
 
 let persistor = persistStore(store);
